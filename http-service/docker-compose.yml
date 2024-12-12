@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  http-service:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    ports:
+      - "8081:8081"
+    environment:
+      SPRING_KAFKA_BOOTSTRAP_SERVERS: host.docker.internal:9092
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/http-service-db
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: 123456
+      SERVER_PORT: 8081
+    depends_on:
+      - postgres
+
+  postgres:
+    image: postgres:15
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 123456
+      POSTGRES_DB: http-service-db
+    ports:
+      - "5432:5432"

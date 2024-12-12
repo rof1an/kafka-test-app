@@ -1,0 +1,4 @@
+rootProject.name = 'my-microservices-project'
+
+include 'http-service'
+include 'worker-service'

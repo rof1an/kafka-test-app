@@ -1,0 +1,36 @@
+GET http://localhost:8081/api/tasks/
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.1.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+content-length: 0
+
+<> 2024-12-10T184823.404.json
+
+###
+
+POST http://localhost:8080/api/tasks/send
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 38
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.1.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+topic=process-topic&message=HelloKafka
+
+<> 2024-12-09T182650.404.json
+
+###
+
+POST http://localhost:8080/api/tasks/send
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 67
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.1.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+topic=process-topic&message=HelloKafkadom.alphanumeric%288%29%7D%7D
+
+<> 2024-12-09T182630.404.json
+
+###
+
