@@ -1,11 +1,9 @@
 package com.example.http.controller;
 
+import com.example.http.entity.Task;
 import com.example.http.service.KafkaProducerService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequiredArgsConstructor
@@ -15,8 +13,8 @@ public class TaskController {
     private final KafkaProducerService kafkaProducerService;
 
     @PostMapping("/send")
-    public String sendMessage(@RequestParam String topic, @RequestParam String message) {
-        kafkaProducerService.sendMessage(topic, message);
-        return "Message sent to Kafka topic: " + topic + " with message " + message;
+    public String sendMessage(@RequestParam String topic, @RequestBody Task task) {
+        kafkaProducerService.sendMessage(topic, task);
+        return "Message sent to Kafka topic: " + topic + " with message " + task.getTitle();
     }
 }
